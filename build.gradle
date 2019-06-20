@@ -1,0 +1,40 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.6.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'oracle.idcs.provide'
+version = '1.0.0'
+sourceCompatibility = '1.8'
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+    // implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4'
+    implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: '3.0.4.RELEASE'
+    // https://mvnrepository.com/artifact/org.opensaml/opensaml
+    implementation group: 'org.opensaml', name: 'opensaml', version: '2.6.4'
+    // https://mvnrepository.com/artifact/org.opensaml/opensaml-core
+    // https://mvnrepository.com/artifact/org.opensaml/opensaml-saml-impl
+    compile group: 'org.opensaml', name: 'opensaml-saml-impl', version: '3.1.1'
+    implementation group: 'org.opensaml', name: 'opensaml-core', version: '3.3.0'
+    implementation group: 'org.springframework.security.extensions', name: 'spring-security-saml2-core', version: '1.0.9.RELEASE'
+    implementation group: 'org.springframework.security', name: 'spring-security-core', version: '5.1.5.RELEASE'
+    implementation fileTree(dir: 'libs', include: ['spring-security-saml2-core-2.0.0.BUILD-SNAPSHOT.jar'])
+            
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+}
