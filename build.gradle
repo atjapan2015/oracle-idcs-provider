@@ -35,6 +35,8 @@ dependencies {
     implementation group: 'org.springframework.security.extensions', name: 'spring-security-saml2-core', version: '1.0.9.RELEASE'
     implementation group: 'org.springframework.security', name: 'spring-security-core', version: '5.1.5.RELEASE'
     implementation fileTree(dir: 'libs', include: ['spring-security-saml2-core-2.0.0.BUILD-SNAPSHOT.jar'])
+    
+    implementation 'io.projectreactor:reactor-core'
             
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }
